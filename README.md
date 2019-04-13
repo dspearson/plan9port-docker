@@ -7,6 +7,6 @@ Binaries will be copied to bin/ in the current folder.
 ```bash
 git clone https://github.com/dspearson/plan9port-docker.git
 cd plan9port-docker
-docker build -t plan9port-build .
-docker run -v $PWD:/target plan9port-build cp -r /plan9port/bin /target
+docker build --build-arg uid=$UID --build-arg user=$USER -t plan9port-build .
+docker run -v $PWD:/target plan9port-build cp -r /tmp/plan9port/bin /target
 ```
